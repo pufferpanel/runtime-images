@@ -17,7 +17,7 @@ jobs:
     permissions:
       contents: read
       packages: write
-    environment: ${{ startsWith(github.ref, 'refs/tags/') && 'Release' || 'Development' }}
+    environment: Release
 
     strategy:
       matrix:
