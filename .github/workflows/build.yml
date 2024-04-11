@@ -38,7 +38,7 @@ jobs:
             tags: |
               type=raw,value=11-alpine
               type=raw,value=11
-              platform: linux/amd64,linux/arm64
+            platform: linux/amd64,linux/arm64
 
           - path: java/eclipse-temurin
             file: alpine.Dockerfile
@@ -88,4 +88,4 @@ jobs:
           cache-to: type=gha,mode=max
           build-args: |
             ${{ matrix.image.arg }}
-          platforms: 
+          platforms: ${{ matrix.image.platform }}
