@@ -29,6 +29,25 @@ jobs:
             tags: |
               type=raw,value=8-alpine
               type=raw,value=8
+            platform: linux/amd64
+
+          - path: java/eclipse-temurin
+            file: alpine.Dockerfile
+            arg: JAVA_VERSION=11
+            image: pufferpanel/eclipse-temurin
+            tags: |
+              type=raw,value=11-alpine
+              type=raw,value=11
+              platform: linux/amd64,linux/arm64
+
+          - path: java/eclipse-temurin
+            file: alpine.Dockerfile
+            arg: JAVA_VERSION=17
+            image: pufferpanel/eclipse-temurin
+            tags: |
+              type=raw,value=17-alpine
+              type=raw,value=17
+            platform: linux/amd64,linux/arm64
 
     env:
       REGISTRY_USERNAME: ${{ secrets.REGISTRY_USERNAME }}
@@ -69,4 +88,4 @@ jobs:
           cache-to: type=gha,mode=max
           build-args: |
             ${{ matrix.image.arg }}
-          platforms: linux/amd64,linux/arm64
+          platforms: 
