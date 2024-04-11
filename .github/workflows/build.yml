@@ -25,9 +25,10 @@ jobs:
           - path: java/eclipse-temurin
             file: alpine.Dockerfile
             arg: JAVA_VERSION=8
-            image: |
-              pufferpanel/eclipse-temurin:8-alpine
-              pufferpanel/eclipse-temurin:8
+            image: pufferpanel/eclipse-temurin
+            tags: |
+              type=raw,value=8-alpine
+              type=raw,value=8
 
     env:
       REGISTRY_USERNAME: ${{ secrets.REGISTRY_USERNAME }}
@@ -49,6 +50,8 @@ jobs:
         with:
           images: |
             ${{ matrix.image.image }}
+          tags: |
+            ${{ matrix.image.tags }}
 
       - name: Check out code into the Go module directory
         uses: actions/checkout@v3
