@@ -86,13 +86,6 @@ jobs:
               type=raw,value=latest
             platform: linux/amd64,linux/arm64
 
-          - path: ubuntu
-            file: xz.Dockerfile
-            image: pufferpanel/ubuntu
-            tags: |
-              type=raw,value=xz
-            platform: linux/amd64,linux/arm64
-
     env:
       REGISTRY_USERNAME: ${{ secrets.REGISTRY_USERNAME }}
       REGISTRY_PASSWORD: ${{ secrets.REGISTRY_PASSWORD }}
