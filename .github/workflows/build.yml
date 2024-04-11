@@ -2,6 +2,8 @@ name: Build Images
 
 on:
   push:
+  schedule:
+    - cron: '0 11 * * *'
 
 env:
   REGISTRY: ghcr.io
@@ -68,6 +70,16 @@ jobs:
             image: pufferpanel/eclipse-temurin
             tags: |
               type=raw,value=17
+            platform: linux/amd64,linux/arm64
+
+          - path: steamcmd
+            file: Dockerfile
+            image: pufferpanel/steamcmd
+            platform: linux/amd64
+
+          - path: ubuntu
+            file: Dockerfile
+            image: pufferpanel/ubuntu
             platform: linux/amd64,linux/arm64
 
     env:
