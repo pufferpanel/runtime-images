@@ -29,7 +29,7 @@ jobs:
             tags: |
               type=raw,value=8-alpine
               type=raw,value=8
-            platform: linux/amd64
+            platform: linux/amd64,linux/arm64/v8
 
           - path: java/eclipse-temurin
             file: alpine.Dockerfile
@@ -38,7 +38,7 @@ jobs:
             tags: |
               type=raw,value=11-alpine
               type=raw,value=11
-            platform: linux/amd64,linux/arm64
+            platform: linux/amd64,linux/arm64/v8
 
           - path: java/eclipse-temurin
             file: alpine.Dockerfile
@@ -47,7 +47,7 @@ jobs:
             tags: |
               type=raw,value=17-alpine
               type=raw,value=17
-            platform: linux/amd64,linux/arm64
+            platform: linux/amd64,linux/arm64/v8
 
     env:
       REGISTRY_USERNAME: ${{ secrets.REGISTRY_USERNAME }}
