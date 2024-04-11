@@ -28,7 +28,6 @@ jobs:
             image: pufferpanel/eclipse-temurin
             tags: |
               type=raw,value=8-alpine
-              type=raw,value=8
             platform: linux/amd64
 
           - path: java/eclipse-temurin
@@ -37,7 +36,6 @@ jobs:
             image: pufferpanel/eclipse-temurin
             tags: |
               type=raw,value=11-alpine
-              type=raw,value=11
             platform: linux/amd64
 
           - path: java/eclipse-temurin
@@ -46,8 +44,31 @@ jobs:
             image: pufferpanel/eclipse-temurin
             tags: |
               type=raw,value=17-alpine
-              type=raw,value=17
             platform: linux/amd64
+
+          - path: java/eclipse-temurin
+            file: ubuntu.Dockerfile
+            arg: JAVA_VERSION=8
+            image: pufferpanel/eclipse-temurin
+            tags: |
+              type=raw,value=8
+              platform: linux/amd64,linux/arm64
+
+          - path: java/eclipse-temurin
+            file: ubuntu.Dockerfile
+            arg: JAVA_VERSION=11
+            image: pufferpanel/eclipse-temurin
+            tags: |
+              type=raw,value=11
+              platform: linux/amd64,linux/arm64
+
+          - path: java/eclipse-temurin
+            file: ubuntu.Dockerfile
+            arg: JAVA_VERSION=17
+            image: pufferpanel/eclipse-temurin
+            tags: |
+              type=raw,value=17
+            platform: linux/amd64,linux/arm64
 
     env:
       REGISTRY_USERNAME: ${{ secrets.REGISTRY_USERNAME }}
@@ -73,7 +94,7 @@ jobs:
             ${{ matrix.image.tags }}
 
       - name: Check out code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Build and push Docker image
         id: build-and-push
