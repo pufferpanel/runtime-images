@@ -83,7 +83,7 @@ jobs:
             file: Dockerfile
             image: pufferpanel/ubuntu
             tags: |
-              type=raw,value=17
+              type=raw,value=latest
             platform: linux/amd64,linux/arm64
 
     env:
