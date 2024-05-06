@@ -1,4 +1,4 @@
-FROM steamcmd/steamcmd
+FROM steamcmd/steamcmd:ubuntu-20
 
 ENV DEBIAN_FRONTEND=noninteractive
 
